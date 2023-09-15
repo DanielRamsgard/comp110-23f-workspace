@@ -7,7 +7,7 @@ WHITE_BOX: str = "\U00002B1C"
 GREEN_BOX: str = "\U0001F7E9"
 YELLOW_BOX: str = "\U0001F7E8"
 counter_1: int = 0
-result_string: str = "" # setting initial resultant string to blank
+result_string: str = ""  # setting initial resultant string to blank
 # error and retry method if length of characters is wrong
 while (len(user_guess) != len(secret_word)):
     user_guess = input(f"That was not {len(secret_word)} letters! Try again: ")
@@ -21,7 +21,7 @@ elif secret_word == user_guess:
 while (counter_1 < 6):
    # check if characters are in both strings and in correct places
    if (secret_word[counter_1] == user_guess[counter_1]):
-     result_string += GREEN_BOX
+        result_string += GREEN_BOX
    # check if characters may be in both strings but in the wrong places
    elif (secret_word[counter_1] != user_guess[counter_1]):
       # counter for secret word
