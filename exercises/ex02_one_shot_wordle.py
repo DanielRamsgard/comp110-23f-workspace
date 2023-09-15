@@ -10,7 +10,7 @@ counter_1: int = 0
 result_string: str = "" # setting initial resultant string to blank
 # error and retry method if length of characters is wrong
 while (len(user_guess) != len(secret_word)):
-   user_guess = input(f"That was not {len(secret_word)} letters! Try again: ")
+    user_guess = input(f"That was not {len(secret_word)} letters! Try again: ")
 # return string if guess is wrong
 if secret_word != user_guess:
    print("Not quite. Play again soon!")
