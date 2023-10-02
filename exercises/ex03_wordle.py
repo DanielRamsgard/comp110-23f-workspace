@@ -56,7 +56,11 @@ def main() -> None:
     """The entry point of the game and the main game loop."""
     # initializing variables
     secret_word: str = "codes"
-    correct_guess: str = "\U0001F7E9\U0001F7E9\U0001F7E9\U0001F7E9\U0001F7E9"
+    idx: int = 0
+    correct_guess: str = ""
+    while (idx < len(secret_word)):
+        correct_guess += GREEN_BOX
+        idx += 1 
     turn: int = 1
     # loop to fun game and increment # of turns
     while (turn < 7):
