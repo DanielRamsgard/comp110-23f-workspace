@@ -58,6 +58,7 @@ def main() -> None:
     secret_word: str = "codes"
     idx: int = 0
     correct_guess: str = ""
+    # setting correct_guess to proper length
     while (idx < len(secret_word)):
         correct_guess += GREEN_BOX
         idx += 1 
