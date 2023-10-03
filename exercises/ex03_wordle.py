@@ -55,7 +55,7 @@ def input_guess(expected_length: int) -> str:
 def main() -> None:
     """The entry point of the game and the main game loop."""
     # initializing variables
-    secret_word: str = "code"
+    secret_word: str = "codes"
     idx: int = 0
     correct_guess: str = ""
     while (idx < len(secret_word)):
