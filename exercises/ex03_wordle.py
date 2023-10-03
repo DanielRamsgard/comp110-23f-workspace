@@ -4,9 +4,9 @@ __author__ = "730695813"
 WHITE_BOX: str = "\U00002B1C"
 GREEN_BOX: str = "\U0001F7E9"
 YELLOW_BOX: str = "\U0001F7E8"
+
+
 # signature line for contains_char function
-
-
 def contains_char(input_string: str, input_chr: str) -> bool: 
     """Function returns True if input_chr is found at any index of input_str: False otherwise."""
     assert len(input_chr) == 1
@@ -18,9 +18,9 @@ def contains_char(input_string: str, input_chr: str) -> bool:
             return True
         i += 1
     return False
+
+
 # signature line for emojified function
-
-
 def emojified(input_guess: str, secret_str: str) -> str: 
     """Function to return string of emojis specifying yellow, green, and white boxes."""
     assert len(input_guess) == len(secret_str)
@@ -37,9 +37,9 @@ def emojified(input_guess: str, secret_str: str) -> str:
             result_str += WHITE_BOX
         i += 1
     return result_str
+
+
 # signature line for function to make sure guess lengths are correct relative to secret word
-
-
 def input_guess(expected_length: int) -> str:
     """Function to determine if user guess matches the desired len of the secret word."""
     # initializing input string
@@ -49,13 +49,13 @@ def input_guess(expected_length: int) -> str:
         new_user_input: str = input(f"That wasn't {expected_length} chars! Try again: ")
         input_str = new_user_input
     return input_str
+
+
 # signature line for main function
-
-
 def main() -> None:
     """The entry point of the game and the main game loop."""
     # initializing variables
-    secret_word: str = "codes"
+    secret_word: str = "code"
     idx: int = 0
     correct_guess: str = ""
     while (idx < len(secret_word)):
@@ -84,5 +84,6 @@ def main() -> None:
     return
 
 
+# if __name__ is equal to __main__ function main() runs
 if __name__ == "__main__":
     main()
