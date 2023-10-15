@@ -1,11 +1,11 @@
 """My scene will be of a beautful nightsky with birds, stars, and shooting stars.
 
-There will also be trees at the bottom. Above and beyond: I used the circle() 
-method. I used many while loops throughout my code. I used randomness with the
+There will also be trees at the bottom. Above and beyond: I used the circle() and pensize()
+methods. I used many while loops throughout my code. I used randomness with the
 randint() function from the random library to randomize RGB values for stars, 
 coordinates for stars, and tree branch width and lengths. I would say my scene
 is more complex than that which is achieved with only four components (also used
-more than four). circle() method use: lines 160, 237, 271, and 277. Randomness: lines 63, 64, 86, 87, 135, 136, 154, and 155. Loops: lines 32, 61, 84, 115, 133, 188, 210, 234, and 251.
+more than four). pensize() method use: lines 198 and 202. circle() method use: lines 160, 239, 273, and 279. Randomness: lines 63, 64, 86, 87, 135, 136, 154, and 155. Loops: lines 32, 61, 84, 115, 133, 188, 212, 236, and 253.
 """
 
 __author__ = "730695813"
@@ -195,9 +195,11 @@ def bottom_scene(Turtle: Turtle, x: float, y: float, tree_num: int) -> None:
         i += 1
 
     # draw birds
-    bird(Turtle, 220, -90)
-    bird(Turtle, 240, -120)
-    bird(Turtle, 220, -140)
+    Turtle.pensize(1.6)
+    bird(Turtle, 220, -20)
+    bird(Turtle, 240, -50)
+    bird(Turtle, 220, -70)
+    Turtle.pensize(1)
 
 
 # signature line for background() function
@@ -264,7 +266,7 @@ def bird(Turtle: Turtle, x: float, y: float) -> None:
     Turtle.up()
     Turtle.goto(x, y)
     Turtle.down()
-    Turtle.color(110, 110, 110)
+    Turtle.color(0, 0, 0)
 
     # drawing first half of bird
     Turtle.right(90)
@@ -292,7 +294,7 @@ def main() -> None:
     leo.hideturtle()
 
     # creates scene
-    background(leo, -358, -358, 10, 73, 1.75, 0, 5, 10, 10000)
+    background(leo, -358, -358, 10, 73, 1.75, 0, 5, 10, 5500)
     bottom_scene(leo, -358, -120, 24)
 
     # Now update the rendering
