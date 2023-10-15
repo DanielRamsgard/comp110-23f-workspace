@@ -4,15 +4,16 @@ from turtle import Turtle, colormode, done, tracer, update
 from random import randint
 colormode(255)
 
-def dark_sky(Turtle: Turtle, x: float, y: float, x_size: int, y_size: int, num_stars: int) -> None:
-    """This function prints a portion of a dark, starry nightsky. Section started from bottom-left corner."""
 
-    # initial setup
+def sky(Turtle: Turtle, x: float, y: float, x_size: int, y_size: int, red_val: int, green_val: int, blue_val: int) -> None:
+    """This fucntion prints a portion of a bright night sky."""
+     # initial setup
     Turtle.up()
     Turtle.goto(x, y)
     Turtle.down()
     i: int = 0
-    Turtle.fillcolor(0, 20, 40)
+    Turtle.fillcolor(red_val, green_val, blue_val)
+    Turtle.pencolor(red_val, green_val, blue_val)
     Turtle.begin_fill()
 
     # outlining
@@ -25,38 +26,14 @@ def dark_sky(Turtle: Turtle, x: float, y: float, x_size: int, y_size: int, num_s
     
     Turtle.end_fill()
 
-    # make stars
-    i = 0
-    while (i < num_stars):
-        # don't want stars on boundaries
-        x_coord: int = randint(3, x_size - 3) + x
-        y_coord: int = randint(3, y_size - 3) + y
-
-        # initial setup
-        Turtle.up()
-        Turtle.goto(x_coord, y_coord)
-        Turtle.down()
-        
-        # call star() function and increment counter
-        star(Turtle, x, y)
-        i += 1
-
-
-
-def colorful_sky(Turtle: Turtle, x: float, y: float, bright_factor: float, x_size: int, y_size: int) -> None:
-    """This fucntion prints a portion of a bright nighsky."""
-
-
-def blend_sky(Turtle: Turtle, x: float, y: float, bright_factor: float, left_color: list[int], right_color: list[int]) -> None:
-    """This function will blend a dark sky with a colorful sky."""
-
-
+    
 def tree(Turtle: Turtle, x: float, y: float, branch_num: int) -> None: # starts at top of tree
     """This function will produce a tree at certain coordinates."""
     # initial setup
     Turtle.up
     Turtle.goto(x, y)
     i: int = 0
+    Turtle.color(0, 0, 0)
     branch_base_width_value: float = 1.5
     branch_base_length_value: float = 1
     x_while: float = x
@@ -130,6 +107,23 @@ def tree_branch(Turtle: Turtle, x: float, y: float, width: int, length: int) -> 
     Turtle.end_fill()
 
 
+def star_cover(Turtle: Turtle, x: float, y: float, x_size: int, y_size: int,  num_stars: int) -> None:
+    i = 0
+    while (i < num_stars):
+        # don't want stars on boundaries
+        x_coord: int = randint(3, x_size - 3) + x
+        y_coord: int = randint(3, y_size - 3) + y
+
+        # initial setup
+        Turtle.up()
+        Turtle.goto(x_coord, y_coord)
+        Turtle.down()
+        
+        # call star() function and increment counter
+        star(Turtle, x, y)
+        i += 1
+
+
 def star(Turtle: Turtle, x: float, y: float) -> None:
     
     # initial setup and semi-random star-color and star-size generator
@@ -139,7 +133,6 @@ def star(Turtle: Turtle, x: float, y: float) -> None:
     shift_value = randint(0, 160)
     Turtle.fillcolor(Base_RGB + shift_value, Base_RGB + shift_value, Base_RGB + shift_value)
     Turtle.begin_fill()
-    i: int = 0
     
     # make a circle and fill
     Turtle.circle(star_size)
@@ -152,6 +145,8 @@ def bottom_scene(Turtle: Turtle, x: float, y: float, tree_num: int) -> None:
     branch_num: int = 150
     i: int = 0
     step: float = 716 / tree_num
+
+    # use tree_branch() function to create a black rectangle
     tree_branch(Turtle, -358, -358, 120, 725)
 
     # initial setup
@@ -170,16 +165,31 @@ def bottom_scene(Turtle: Turtle, x: float, y: float, tree_num: int) -> None:
         i += 1
 
 
+def background(Turtle: Turtle, x: float, y: float, channel_width: int, channel_num: int, color_factor: int, red_val: int, green_val: int, blue_val: int, star_num: int) -> None:
+    """Creates the gradient background on color for night sky and the starcover."""
+    i: int = 0
+    while (i < channel_num):
+        sky(Turtle, x + channel_width*i, y, channel_width, 725, red_val, int(green_val + i / color_factor), int(blue_val + i / color_factor))
+        i += 1
+    star_cover(Turtle, x, y, 725, 725, star_num)
+
+
 def main() -> None:
     """The main function to fun my code."""
+
+    # initial setup
     tracer(0, 0) # Disable delay in tracing
     MAX_SPEED = 0
     leo: Turtle = Turtle()
     leo.speed(MAX_SPEED)
     leo.hideturtle()
-    dark_sky(leo, -358, -358, 725, 725, 10000)
+
+    # creates scene
+    background(leo, -358, -358, 10, 73, 2, 0, 5, 10, 10000)
     bottom_scene(leo, -358, -120, 24)
-    update() # Now update the rendering
+
+    # Now update the rendering
+    update()
     done()
 
 
