@@ -195,7 +195,7 @@ def bottom_scene(Turtle: Turtle, x: float, y: float, tree_num: int) -> None:
         i += 1
 
     # draw birds
-    Turtle.pensize(1.6)
+    Turtle.pensize(2)
     bird(Turtle, 220, -20)
     bird(Turtle, 240, -50)
     bird(Turtle, 220, -70)
