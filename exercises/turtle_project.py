@@ -165,7 +165,7 @@ def bottom_scene(Turtle: Turtle, x: float, y: float, tree_num: int) -> None:
         i += 1
 
 
-def background(Turtle: Turtle, x: float, y: float, channel_width: int, channel_num: int, color_factor: int, red_val: int, green_val: int, blue_val: int, star_num: int) -> None:
+def background(Turtle: Turtle, x: float, y: float, channel_width: int, channel_num: int, color_factor: float, red_val: int, green_val: int, blue_val: int, star_num: int) -> None:
     """Creates the gradient background on color for night sky and the starcover."""
     i: int = 0
     while (i < channel_num):
@@ -193,7 +193,7 @@ def main() -> None:
     leo.hideturtle()
 
     # creates scene
-    background(leo, -358, -358, 10, 73, 2, 0, 5, 10, 10000)
+    background(leo, -358, -358, 10, 73, 1.75, 0, 5, 10, 10000)
     bottom_scene(leo, -358, -120, 24)
 
     # Now update the rendering
