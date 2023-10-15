@@ -1,10 +1,12 @@
 """My scene will be of a beautful nightsky with birds, stars, and shooting stars.
-    There will also be trees at the bottom. Above and beyond: I used the circle() 
-    method. I used many while loops throughout my code. I used randomness with the
-    randint() function from the random library to randomize RGB values for stars, 
-    coordinates for stars, and tree branch width and lengths. I would say my scene
-    is more complex than that which is achieved with only four components (also used
-    more than four). circle() method use: lines 159, 237, 271, and 277. Randomness: lines 61, 62, 84, 85, 133, 134, 153, and 154. Loops: lines 29, 59, 82, 113, 131, 188, 210, 234, and 251."""
+
+There will also be trees at the bottom. Above and beyond: I used the circle() 
+method. I used many while loops throughout my code. I used randomness with the
+randint() function from the random library to randomize RGB values for stars, 
+coordinates for stars, and tree branch width and lengths. I would say my scene
+is more complex than that which is achieved with only four components (also used
+more than four). circle() method use: lines 160, 237, 271, and 277. Randomness: lines 63, 64, 86, 87, 135, 136, 154, and 155. Loops: lines 32, 61, 84, 115, 133, 188, 210, 234, and 251.
+"""
 
 __author__ = "730695813"
 
@@ -12,6 +14,7 @@ __author__ = "730695813"
 from turtle import Turtle, colormode, done, tracer, update
 from random import randint
 colormode(255)
+
 
 # signature line for sky() function
 def sky(Turtle: Turtle, x: float, y: float, x_size: int, y_size: int, red_val: int, green_val: int, blue_val: int) -> None:
@@ -38,7 +41,7 @@ def sky(Turtle: Turtle, x: float, y: float, x_size: int, y_size: int, red_val: i
 
 
 # signature line for tree() function
-def tree(Turtle: Turtle, x: float, y: float, branch_num: int) -> None: # starts at top of tree
+def tree(Turtle: Turtle, x: float, y: float, branch_num: int) -> None:  # starts at top of tree
     """This function will produce a tree at certain coordinates with an input value branches."""
     # initial setup
     Turtle.up
@@ -54,12 +57,11 @@ def tree(Turtle: Turtle, x: float, y: float, branch_num: int) -> None: # starts 
     # right side of tree
     Turtle.left(-10)
 
-
     # create branches
     while (i < branch_num):
         # set probabilistic width and length values
-        current_width_one: int = branch_base_width_value + ((randint(-10, 10) / 100) * 10)
-        current_length_one: int = branch_base_length_value + randint(-4, 4)
+        current_width_one: float = branch_base_width_value + ((randint(-10, 10) / 100) * 10)
+        current_length_one: float = branch_base_length_value + randint(-4, 4)
 
         # creates branch
         tree_branch(Turtle, x_while, y_while, current_width_one, current_length_one)
@@ -81,8 +83,8 @@ def tree(Turtle: Turtle, x: float, y: float, branch_num: int) -> None: # starts 
     # create branches
     while (i < branch_num):
         # set probabilistic width and length values
-        current_width_one: int = branch_base_width_value + ((randint(-10, 10) / 100) * 10)
-        current_length_one: int = branch_base_length_value + randint(-4, 4)
+        current_width_one = branch_base_width_value + ((randint(-10, 10) / 100) * 10)
+        current_length_one = branch_base_length_value + randint(-4, 4)
 
         # creates branch
         tree_branch(Turtle, x_while, y_while, current_width_one, current_length_one)
@@ -100,7 +102,7 @@ def tree(Turtle: Turtle, x: float, y: float, branch_num: int) -> None: # starts 
 
 # signature line for tree_branch() function
 def tree_branch(Turtle: Turtle, x: float, y: float, width: float, length: float) -> None:
-    """This function will create a rectangle at an angle"""
+    """This function will create a rectangle at an angle."""
     # initial setup
     Turtle.up()
     Turtle.goto(x, y)
@@ -122,7 +124,7 @@ def tree_branch(Turtle: Turtle, x: float, y: float, width: float, length: float)
 
 
 # signature line for star_cover() function
-def star_cover(Turtle: Turtle, x: float, y: float, x_size: int, y_size: int,  num_stars: int) -> None:
+def star_cover(Turtle: Turtle, x: float, y: float, x_size: int, y_size: int, num_stars: int) -> None:
     """This function covers the input area with an input number of stars."""
     # intial setup
     i: int = 0
@@ -130,8 +132,8 @@ def star_cover(Turtle: Turtle, x: float, y: float, x_size: int, y_size: int,  nu
     # loop to draw the stars
     while (i < num_stars):
         # don't want stars on boundaries
-        x_coord: int = randint(3, x_size - 3) + x
-        y_coord: int = randint(3, y_size - 3) + y
+        x_coord: float = randint(3, x_size - 3) + x
+        y_coord: float = randint(3, y_size - 3) + y
 
         # initial setup
         Turtle.up()
@@ -144,9 +146,8 @@ def star_cover(Turtle: Turtle, x: float, y: float, x_size: int, y_size: int,  nu
 
 
 # signature line for star() function
-def star(Turtle: Turtle, x: float, y: float) -> None: # x and y are not used because the Turtle already goes to the necessary location before star() is called
+def star(Turtle: Turtle, x: float, y: float) -> None:  # x and y are not used because the Turtle already goes to the necessary location before star() is called
     """This function creates a star at given coordinates."""
-    
     # initial setup and semi-random star-color and star-size generator
     Turtle.down()
     Base_RGB: int = 60
@@ -207,7 +208,7 @@ def background(Turtle: Turtle, x: float, y: float, channel_width: int, channel_n
 
     # loop for each segment of sky; increases green and blue values to make a gradient in sky
     while (i < channel_num):
-        sky(Turtle, x + channel_width*i, y, channel_width, 725, red_val, int(green_val + i / color_factor), int(blue_val + i / color_factor))
+        sky(Turtle, x + channel_width * i, y, channel_width, 725, red_val, int(green_val + i / color_factor), int(blue_val + i / color_factor))
         i += 1
 
     # calls star_cover() and shooting_star() functions
@@ -223,7 +224,7 @@ def shooting_star(Turtle: Turtle, x: float, y: float, angle: int) -> None:
     Turtle.up()
     Turtle.goto(x, y)
     Turtle.down()
-    i: int  = 0
+    i: int = 0
     step: float = 0.01
     current_radius: float = 2
     shift_value: int = 0
@@ -283,9 +284,8 @@ def bird(Turtle: Turtle, x: float, y: float) -> None:
 # signature line for main() function
 def main() -> None:
     """The entry point of my scene."""
-
     # initial setup
-    tracer(0, 0) # Disable delay in tracing
+    tracer(0, 0)  # Disable delay in tracing
     MAX_SPEED: int = 0
     leo: Turtle = Turtle()
     leo.speed(MAX_SPEED)
