@@ -171,6 +171,11 @@ def bottom_scene(Turtle: Turtle, x: float, y: float, tree_num: int) -> None:
         Turtle.goto(x, y_while)
         i += 1
 
+    # draw birds
+    bird(Turtle, 220, -90)
+    bird(Turtle, 240, -120)
+    bird(Turtle, 220, -140)
+
 
 def background(Turtle: Turtle, x: float, y: float, channel_width: int, channel_num: int, color_factor: float, red_val: int, green_val: int, blue_val: int, star_num: int) -> None:
     """Creates the gradient background on color for night sky and the starcover."""
@@ -181,6 +186,7 @@ def background(Turtle: Turtle, x: float, y: float, channel_width: int, channel_n
     star_cover(Turtle, x, y, 725, 725, star_num)
     shooting_star(Turtle, -230, 250, 10)
     shooting_star(Turtle, 8, 50, -90)
+
 
 
 def shooting_star(Turtle: Turtle, x: float, y: float, angle: int) -> None:
@@ -221,7 +227,25 @@ def shooting_star(Turtle: Turtle, x: float, y: float, angle: int) -> None:
 
 def bird(Turtle: Turtle, x: float, y: float) -> None:
     """This function produces a bird at a location specified in inputs."""
+    # initial setup
+    Turtle.up()
+    Turtle.goto(x, y)
+    Turtle.down()
+    Turtle.color(110, 110, 110)
 
+    # drawing first half of bird
+    Turtle.right(90)
+    Turtle.circle(10, -150)
+
+    # drawing second half of bird
+    Turtle.up()
+    Turtle.goto(x, y)
+    Turtle.down()
+    Turtle.circle(10, 150)
+
+    # final settings
+    Turtle.setheading(0)
+    Turtle.up()
 
 def main() -> None:
     """The main function to fun my code."""
@@ -230,7 +254,7 @@ def main() -> None:
     tracer(0, 0) # Disable delay in tracing
     MAX_SPEED = 0
     leo: Turtle = Turtle()
-    leo.speed(MAX_SPEED)
+    # leo.speed(MAX_SPEED)
     leo.hideturtle()
 
     # creates scene
