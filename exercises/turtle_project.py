@@ -1,0 +1,187 @@
+"""My scene will be of a beautful nightsky and pretty landscape."""
+
+from turtle import Turtle, colormode, done, tracer, update
+from random import randint
+colormode(255)
+
+def dark_sky(Turtle: Turtle, x: float, y: float, x_size: int, y_size: int, num_stars: int) -> None:
+    """This function prints a portion of a dark, starry nightsky. Section started from bottom-left corner."""
+
+    # initial setup
+    Turtle.up()
+    Turtle.goto(x, y)
+    Turtle.down()
+    i: int = 0
+    Turtle.fillcolor(0, 20, 40)
+    Turtle.begin_fill()
+
+    # outlining
+    while (i < 2):
+        Turtle.forward(x_size)
+        Turtle.left(90)
+        Turtle.forward(y_size)
+        Turtle.left(90)
+        i += 1
+    
+    Turtle.end_fill()
+
+    # make stars
+    i = 0
+    while (i < num_stars):
+        # don't want stars on boundaries
+        x_coord: int = randint(3, x_size - 3) + x
+        y_coord: int = randint(3, y_size - 3) + y
+
+        # initial setup
+        Turtle.up()
+        Turtle.goto(x_coord, y_coord)
+        Turtle.down()
+        
+        # call star() function and increment counter
+        star(Turtle, x, y)
+        i += 1
+
+
+
+def colorful_sky(Turtle: Turtle, x: float, y: float, bright_factor: float, x_size: int, y_size: int) -> None:
+    """This fucntion prints a portion of a bright nighsky."""
+
+
+def blend_sky(Turtle: Turtle, x: float, y: float, bright_factor: float, left_color: list[int], right_color: list[int]) -> None:
+    """This function will blend a dark sky with a colorful sky."""
+
+
+def tree(Turtle: Turtle, x: float, y: float, branch_num: int) -> None: # starts at top of tree
+    """This function will produce a tree at certain coordinates."""
+    # initial setup
+    Turtle.up
+    Turtle.goto(x, y)
+    i: int = 0
+    branch_base_width_value: float = 1.5
+    branch_base_length_value: float = 1
+    x_while: float = x
+    y_while: float = y
+    step: float = 30 / branch_num
+
+    # right side of tree
+    Turtle.left(-10)
+
+    while (i < branch_num):
+        # draw tree branches
+        current_width_one: int = branch_base_width_value + ((randint(-10, 10) / 100) * 10)
+        current_length_one: int = branch_base_length_value + randint(-4, 4)
+
+        # creates branches
+        tree_branch(Turtle, x_while, y_while, current_width_one, current_length_one)
+
+        # update variables
+        if current_width_one < 0:
+            current_width_one *= -1
+        y_while -= current_width_one * .7
+        branch_base_length_value += step
+        i += 1
+
+    # left side of tree
+    x_while = x
+    y_while = y + 2
+    i = 0
+    Turtle.right(160)
+    branch_base_length_value = 1
+
+    while (i < branch_num):
+        # draw tree branches
+        current_width_one: int = branch_base_width_value + ((randint(-10, 10) / 100) * 10)
+        current_length_one: int = branch_base_length_value + randint(-4, 4)
+
+        # creates branches
+        tree_branch(Turtle, x_while, y_while, current_width_one, current_length_one)
+
+        # update variables
+        if current_width_one < 0:
+            current_width_one *= -1
+        y_while -= current_width_one * .7
+        branch_base_length_value += step
+        i += 1
+    
+    # reset rotation angle
+    Turtle.setheading(0)
+
+
+
+def tree_branch(Turtle: Turtle, x: float, y: float, width: int, length: int) -> None:
+    """This function will create a rectangle at an angle"""
+    # initial setup
+    Turtle.up()
+    Turtle.goto(x, y)
+    Turtle.down()
+    i: int = 0
+    Turtle.fillcolor(0, 0, 0)
+    Turtle.begin_fill()
+
+    # outlining
+    while (i < 2):
+        # code for one side
+        Turtle.forward(length)
+        Turtle.left(90)
+        Turtle.forward(width)
+        Turtle.left(90)
+        i += 1
+    
+    Turtle.end_fill()
+
+
+def star(Turtle: Turtle, x: float, y: float) -> None:
+    
+    # initial setup and semi-random star-color and star-size generator
+    Turtle.down()
+    Base_RGB = 60
+    star_size: float = (randint(10, 13) / 100) * 10
+    shift_value = randint(0, 160)
+    Turtle.fillcolor(Base_RGB + shift_value, Base_RGB + shift_value, Base_RGB + shift_value)
+    Turtle.begin_fill()
+    i: int = 0
+    
+    # make a circle and fill
+    Turtle.circle(star_size)
+    Turtle.end_fill()
+
+
+def bottom_scene(Turtle: Turtle, x: float, y: float, tree_num: int) -> None:
+    """This function will produce the bottom of my scene: many tress and black bottom."""
+    # using the tree branch function to make a rectangle at bottom of scene
+    branch_num: int = 150
+    i: int = 0
+    step: float = 716 / tree_num
+    tree_branch(Turtle, -358, -358, 120, 725)
+
+    # initial setup
+    Turtle.up()
+    Turtle.goto(x, y)
+    Turtle.down()
+    y_while = y
+
+    while (i < tree_num + 1):
+        Turtle.down()
+        tree(Turtle, x, y_while, branch_num)
+        x += step
+        Turtle.up()
+        y_while = y - randint(-25, 50)
+        Turtle.goto(x, y_while)
+        i += 1
+
+
+def main() -> None:
+    """The main function to fun my code."""
+    tracer(0, 0) # Disable delay in tracing
+    MAX_SPEED = 0
+    leo: Turtle = Turtle()
+    leo.speed(MAX_SPEED)
+    leo.hideturtle()
+    dark_sky(leo, -358, -358, 725, 725, 10000)
+    bottom_scene(leo, -358, -120, 24)
+    update() # Now update the rendering
+    done()
+
+
+if __name__ == "__main__":
+    main()
