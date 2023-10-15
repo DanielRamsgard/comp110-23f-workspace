@@ -174,6 +174,14 @@ def background(Turtle: Turtle, x: float, y: float, channel_width: int, channel_n
     star_cover(Turtle, x, y, 725, 725, star_num)
 
 
+def shooting_star(Turtle: Turtle, x: float, y: float) -> None:
+    """This function produces a shooting star at x and y input values."""
+
+
+def birds(Turtle: Turtle, x: float, y: float, bird_num: int) -> None:
+    """This function produces a number of birds specified in inputs."""
+
+
 def main() -> None:
     """The main function to fun my code."""
 
