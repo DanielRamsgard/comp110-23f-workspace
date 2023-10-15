@@ -141,13 +141,20 @@ def star(Turtle: Turtle, x: float, y: float) -> None:
 
 def bottom_scene(Turtle: Turtle, x: float, y: float, tree_num: int) -> None:
     """This function will produce the bottom of my scene: many tress and black bottom."""
-    # using the tree branch function to make a rectangle at bottom of scene
+    # initial setup
+    Turtle.up
+    Turtle.goto(x, y)
+    Turtle.setheading(0)
+    i: int = 0
+    Turtle.color(0, 0, 0)
+    Turtle.begin_fill()
     branch_num: int = 150
     i: int = 0
     step: float = 716 / tree_num
 
     # use tree_branch() function to create a black rectangle
     tree_branch(Turtle, -358, -358, 120, 725)
+    Turtle.end_fill()
 
     # initial setup
     Turtle.up()
@@ -172,14 +179,48 @@ def background(Turtle: Turtle, x: float, y: float, channel_width: int, channel_n
         sky(Turtle, x + channel_width*i, y, channel_width, 725, red_val, int(green_val + i / color_factor), int(blue_val + i / color_factor))
         i += 1
     star_cover(Turtle, x, y, 725, 725, star_num)
+    shooting_star(Turtle, -230, 250, 10)
+    shooting_star(Turtle, 8, 50, -90)
 
 
-def shooting_star(Turtle: Turtle, x: float, y: float) -> None:
+def shooting_star(Turtle: Turtle, x: float, y: float, angle: int) -> None:
     """This function produces a shooting star at x and y input values."""
+    Turtle.up()
+    Turtle.goto(x, y)
+    Turtle.down()
+    i: int  = 0
+    step: float = 0.01
+    current_radius: float = 2
+    shift_value: int = 0
+    base_value: int = 100
+
+    # draw circles big to small
+    while (i < 100):
+        Turtle.begin_fill()
+        Turtle.color(base_value + shift_value, base_value + shift_value, base_value + shift_value)
+        Turtle.circle(current_radius)
+        Turtle.end_fill()
+        shift_value += 1
+        current_radius -= step
+        i += 1
+    
+    Turtle.goto(x - 1, y + 2)
+    Turtle.left(angle)
+    i = 0
+    shift_value = 0
+    base_value = 225
+
+    while (i < 20):
+        Turtle.color(base_value + shift_value, base_value + shift_value, base_value + shift_value)
+        Turtle.backward(4)
+        shift_value -= 10
+        i += 1
+    
+    Turtle.up()
 
 
-def birds(Turtle: Turtle, x: float, y: float, bird_num: int) -> None:
-    """This function produces a number of birds specified in inputs."""
+def bird(Turtle: Turtle, x: float, y: float) -> None:
+    """This function produces a bird at a location specified in inputs."""
 
 
 def main() -> None:
