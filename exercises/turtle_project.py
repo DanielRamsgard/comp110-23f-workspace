@@ -3,7 +3,7 @@
 There will also be trees at the bottom. Above and beyond: I used the circle() and pensize()
 methods. I used many while loops throughout my code. I used randomness with the
 randint() function from the random library to randomize RGB values for stars, 
-coordinates for stars, and tree branch width and lengths. I would say my scene
+coordinates for stars, and tree branch width and lengths and tree heights. I would say my scene
 is more complex than that which is achieved with only four components (also used
 more than four). pensize() method use: lines 198 and 202. circle() method use: lines 160, 239, 273, and 279. Randomness: lines 63, 64, 86, 87, 135, 136, 154, and 155. Loops: lines 32, 61, 84, 115, 133, 188, 212, 236, and 253.
 """
