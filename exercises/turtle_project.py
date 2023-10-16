@@ -1,7 +1,7 @@
 """My scene will be of a beautful nightsky with birds, stars, and shooting stars.
 
 There will also be trees at the bottom. Above and beyond: I used the circle() and pensize()
-methods. I used many while loops throughout my code. I used randomness with the
+methods (and degree argument for circle() method). I used many while loops throughout my code. I used randomness with the
 randint() function from the random library to randomize RGB values for stars, 
 coordinates for stars, and tree branch width and lengths and tree heights. I would say my scene
 is more complex than that which is achieved with only four components (also used
