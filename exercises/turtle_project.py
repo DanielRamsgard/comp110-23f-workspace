@@ -1,4 +1,4 @@
-"""My scene will be of a beautful nightsky with birds, stars, and shooting stars.
+"""My scene will be of a beautiful nightsky with birds, stars, and shooting stars.
 
 There will also be trees at the bottom. Above and beyond: I used the circle() and pensize()
 methods (and degree argument for circle() method). I used many while loops throughout my code. I used randomness with the
