@@ -5,7 +5,7 @@ __author__ = "730695813"
 
 # signature line for invert() function
 def invert(input_dict: dict[str, str]) -> dict[str, str]:
-    """Function that iverts key-value pairs"""
+    """Function that iverts key-value pairs."""
     # initial setup
     new_key_list: list[str] = list()
     repetition_counter: int = 0
@@ -38,7 +38,7 @@ def invert(input_dict: dict[str, str]) -> dict[str, str]:
 
 
 # signature line for favorite_color() function
-def favorite_colors(input_dict: dict[str, str]) -> str:
+def favorite_color(input_dict: dict[str, str]) -> str:
     """Function that returns the crowd's favorite color."""
     # initial setup
     val_list: list[str] = list()
@@ -55,7 +55,6 @@ def favorite_colors(input_dict: dict[str, str]) -> str:
     # loop through to get a list of vals
     for key in input_dict:
         val_list.append(input_dict[key])
-
     
     # check if we have repeats
     for i in range(0, len(val_list), 1): 
@@ -149,12 +148,11 @@ def alphabetizer(input_list: list[str]) -> dict[str, list[str]]:
 
 
 # signature line for update_attendence() function
-def update_attendence(input_dict: dict[str, list[str]], day: str, student: str) -> dict[str, list[str]]:
+def update_attendance(input_dict: dict[str, list[str]], day: str, student: str) -> dict[str, list[str]]:
     """Function that changes a dict based on inputs."""
     check: int = 0
     student_list: list[str] = list()
     student_list.append(student)
-
 
     # check if day is already in there
     for elem in input_dict:
