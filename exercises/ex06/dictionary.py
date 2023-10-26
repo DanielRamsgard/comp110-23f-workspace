@@ -2,10 +2,6 @@
 
 __author__ = "730695813"
 
-test_dict = {"Monday": ["Vrinda", "Kaleb"], "Tuesday": ["Alyssa"]}
-empty_dict = {}
-test_list = ["hi", "yo", "yo"]
-
 
 # signature line for invert() function
 def invert(input_dict: dict[str, str]) -> dict[str, str]:
@@ -175,6 +171,3 @@ def update_attendence(input_dict: dict[str, list[str]], day: str, student: str) 
 
     # return the dictionary
     return input_dict
-
-
-print(update_attendence(test_dict, "Tuesday", "Jamie"))
