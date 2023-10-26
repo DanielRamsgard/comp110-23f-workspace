@@ -64,7 +64,7 @@ def favorite_color(input_dict: dict[str, str]) -> str:
 
         # make list of counts
         repetition_list_1.append(repetition_counter)
-        repetition_counter = 0 
+        repetition_counter = 0
 
     # initalize max_val
     max_val: int = repetition_list_1[0]
@@ -78,7 +78,7 @@ def favorite_color(input_dict: dict[str, str]) -> str:
         for elem in input_dict:
             return input_dict[elem]
         
-    # update repeition counter to 0
+    # update repetition counter to 0
     repetition_counter = 0
 
     # check counts of colors in dictionary
@@ -88,6 +88,7 @@ def favorite_color(input_dict: dict[str, str]) -> str:
                 repetition_counter += 1
         
         repetition_list.append(repetition_counter)
+        repetition_counter = 0
     
     # 
     i = 0
@@ -150,6 +151,7 @@ def alphabetizer(input_list: list[str]) -> dict[str, list[str]]:
 # signature line for update_attendence() function
 def update_attendance(input_dict: dict[str, list[str]], day: str, student: str) -> dict[str, list[str]]:
     """Function that changes a dict based on inputs."""
+    # initial setup
     check: int = 0
     student_list: list[str] = list()
     student_list.append(student)
