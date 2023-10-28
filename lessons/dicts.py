@@ -40,5 +40,5 @@ print("\n\n")
 for key in ice_cream:
     print(ice_cream[key])
 
-new_dct_1: dict[int, int] = dict() # or {} for empty dict 
+new_dct_1: dict[int, int] = dict()
 print(new_dct_1)

@@ -1,3 +1,5 @@
+"""Turtle_tutorial."""
+
 from turtle import Turtle, colormode, done
 leo: Turtle = Turtle()
 colormode(255)

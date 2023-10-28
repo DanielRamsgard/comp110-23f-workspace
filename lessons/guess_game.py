@@ -1,4 +1,4 @@
-"""guess_game"""
+"""guess_game."""
 from random import randint
 secret: int = randint(1, 10)
 guess: int = int(input("guess a number between 1 and 10: "))

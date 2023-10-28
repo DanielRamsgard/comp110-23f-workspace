@@ -5,12 +5,17 @@ __author__ = "730695813"
 
 # signature line for invert() function
 def invert(input_dict: dict[str, str]) -> dict[str, str]:
-    """Function that iverts key-value pairs."""
+    """Function that inverts key-value pairs."""
     # initial setup
     new_key_list: list[str] = list()
     repetition_counter: int = 0
     new_value_list: list[str] = list()
     new_dict: dict[str, str] = dict()
+    empty_dict: dict[str, list[str]] = dict()
+
+    # make sure list isn't empty
+    if len(input_dict) == 0:
+        return empty_dict
 
     # loop over keys
     for elem in input_dict:
@@ -47,10 +52,11 @@ def favorite_color(input_dict: dict[str, str]) -> str:
     current_max: int = 0
     max_index: int = 0
     repetition_list_1: list[int] = list()
+    empty_dict: dict[str, list[str]] = dict()
 
     # make sure list isn't empty
     if len(input_dict) == 0:
-        return "None"
+        return empty_dict
 
     # loop through to get a list of vals
     for key in input_dict:
@@ -108,6 +114,12 @@ def count(input_list: list[str]) -> dict[str, int]:
     """Function that determines how many time something is in a list."""
     output_dict: dict[str, int] = dict()
     repetition_counter: int = 0
+    empty_dict: dict[str, list[str]] = dict()
+
+
+    # return empty dict if len of input dict is 0
+    if len(input_list) == 0:
+        return empty_dict
     
     # store keys and intialize values
     for i in range(0, len(input_list), 1):
@@ -129,6 +141,11 @@ def count(input_list: list[str]) -> dict[str, int]:
 def alphabetizer(input_list: list[str]) -> dict[str, list[str]]:
     """Function that takes a list and returns letter and list of words starting with letter."""
     output_dict: dict[str, list[str]] = dict()
+    empty_dict: dict[str, list[str]] = dict()
+
+    # return empty dict if len of input dict is 0
+    if len(input_list) == 0:
+        return empty_dict
 
     # store keys and intialize values
     for i in range(0, len(input_list), 1):
@@ -171,3 +188,9 @@ def update_attendance(input_dict: dict[str, list[str]], day: str, student: str) 
 
     # return the dictionary
     return input_dict
+
+print(invert({}))
+print(favorite_color({}))
+print(count({}))
+print(alphabetizer({}))
+print(update_attendance({}, "Tuesday", "Dan"))
