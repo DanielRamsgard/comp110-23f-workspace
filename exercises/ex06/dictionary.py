@@ -11,7 +11,7 @@ def invert(input_dict: dict[str, str]) -> dict[str, str]:
     repetition_counter: int = 0
     new_value_list: list[str] = list()
     new_dict: dict[str, str] = dict()
-    empty_dict: dict[str, list[str]] = dict()
+    empty_dict: dict[str, str] = dict()
 
     # make sure list isn't empty
     if len(input_dict) == 0:
@@ -52,11 +52,10 @@ def favorite_color(input_dict: dict[str, str]) -> str:
     current_max: int = 0
     max_index: int = 0
     repetition_list_1: list[int] = list()
-    empty_dict: dict[str, list[str]] = dict()
 
     # make sure list isn't empty
     if len(input_dict) == 0:
-        return empty_dict
+        return "None"
 
     # loop through to get a list of vals
     for key in input_dict:
@@ -114,8 +113,7 @@ def count(input_list: list[str]) -> dict[str, int]:
     """Function that determines how many time something is in a list."""
     output_dict: dict[str, int] = dict()
     repetition_counter: int = 0
-    empty_dict: dict[str, list[str]] = dict()
-
+    empty_dict: dict[str, int] = dict()
 
     # return empty dict if len of input dict is 0
     if len(input_list) == 0:
@@ -188,9 +186,3 @@ def update_attendance(input_dict: dict[str, list[str]], day: str, student: str) 
 
     # return the dictionary
     return input_dict
-
-print(invert({}))
-print(favorite_color({}))
-print(count({}))
-print(alphabetizer({}))
-print(update_attendance({}, "Tuesday", "Dan"))
