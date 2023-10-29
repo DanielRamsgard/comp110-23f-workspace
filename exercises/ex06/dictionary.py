@@ -95,8 +95,8 @@ def favorite_color(input_dict: dict[str, str]) -> str:
         repetition_list.append(repetition_counter)
         repetition_counter = 0
     
-    # 
-    i = 0
+    # need first index
+    i: int = 0
 
     # the index of the max value in repeition_list is the index in val list we need to return
     current_max = repetition_list[i]
