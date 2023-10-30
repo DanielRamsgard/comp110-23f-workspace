@@ -88,7 +88,7 @@ def favorite_color(input_dict: dict[str, str]) -> str:
 
     # check counts of colors in dictionary
     for i in range(0, len(val_list), 1):
-        for j in range(0, len(val_list)):
+        for j in range(0, len(val_list), 1):
             if val_list[i] == val_list[j]:
                 repetition_counter += 1
         
