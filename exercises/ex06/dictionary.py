@@ -165,8 +165,13 @@ def update_attendance(input_dict: dict[str, list[str]], day: str, student: str) 
     """Function that changes a dict based on inputs."""
     # initial setup
     check: int = 0
+    empty_dict: dict[str, list[str]] = dict()
     student_list: list[str] = list()
     student_list.append(student)
+
+    # return empty dict if:
+    if len(day) == 0 or len(student) == 0:
+        return empty_dict
 
     # check if day is already in there
     for elem in input_dict:
