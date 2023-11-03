@@ -137,6 +137,7 @@ def alphabetizer(input_list: list[str]) -> dict[str, list[str]]:
     """Function that takes a list and returns letter and list of words starting with letter."""
     output_dict: dict[str, list[str]] = dict()
     empty_dict: dict[str, list[str]] = dict()
+    current_elem: str = ""
 
     # return empty dict if len of input dict is 0
     if len(input_list) == 0:
@@ -144,16 +145,17 @@ def alphabetizer(input_list: list[str]) -> dict[str, list[str]]:
 
     # store keys and intialize values
     for i in range(0, len(input_list), 1):
-        if not (input_list[i] in output_dict): 
+        current_elem = input_list[i]
+        if not (current_elem[i].lower() in output_dict): 
             current_str = input_list[i]
-            current_str.lower()
+            current_str = current_str.lower()
             output_dict[current_str[0]] = list()
 
     # store words that start with letter
     for elem in output_dict:
         for i in range(0, len(input_list), 1):
-            current_str = input_list[i]
-            if elem == current_str[0].lower():
+            current_str = input_list[i].lower()
+            if elem == current_str[0]:
                 output_dict[elem].append(input_list[i])
     
     # retrun dict
@@ -164,7 +166,8 @@ def alphabetizer(input_list: list[str]) -> dict[str, list[str]]:
 def update_attendance(input_dict: dict[str, list[str]], day: str, student: str) -> dict[str, list[str]]:
     """Function that changes a dict based on inputs."""
     # initial setup
-    check: int = 0
+    key_check: int = 0
+    val_check: int = 0
     empty_dict: dict[str, list[str]] = dict()
     student_list: list[str] = list()
     student_list.append(student)
@@ -176,15 +179,22 @@ def update_attendance(input_dict: dict[str, list[str]], day: str, student: str) 
     # check if day is already in there
     for elem in input_dict:
         if elem == day:
-            check = 1
+            key_check = 1
 
-    # if check is 0 store the day and the studen
-    if check == 0:
+    # if key check is 0 store the day and the student
+    if key_check == 0:
         input_dict[day] = student_list
 
+    # check if student is already in there
+    for elem in input_dict:
+        if student in input_dict[elem]:
+            val_check = 1
+
     # if check is 1, day is already in there
-    if check == 1:
+    if key_check == 1 and val_check == 0:
         input_dict[day].append(student)
 
     # return the dictionary
     return input_dict
+
+print(alphabetizer(["Tuesday", "today"]))
