@@ -196,5 +196,3 @@ def update_attendance(input_dict: dict[str, list[str]], day: str, student: str) 
 
     # return the dictionary
     return input_dict
-
-print(alphabetizer(["Tuesday", "today"]))
