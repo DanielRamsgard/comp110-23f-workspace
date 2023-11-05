@@ -84,7 +84,7 @@ def test_count_use_case_1() -> None:
 
 # signature line for use case two of count() function
 def test_count_use_case_2() -> None:
-    """Returns a dict with leys and counts of 1 or more with repeat list input elements."""
+    """Returns a dict with keys and counts of 1 or more with repeat list input elements."""
     # initial setup
     test_list: list[str] = ["Bobby", "Bobby", "Simon", "Simon"]
     final_dict: dict[str, int] = {"Bobby": 2, "Simon": 2}
@@ -117,7 +117,7 @@ def test_alphabetizer_use_case_1() -> None:
 
 # signature line for use case two of alphabetizer() function
 def test_alphabetizer_use_case_2() -> None:
-    """Returns multiple keys as elemnts began with different letters at least once in input list."""
+    """Returns multiple keys as elements began with different letters at least once in the input list."""
     # initial setup
     test_list: list[str] = ["cader", "dan", "wyatt", "william"]
     final_dict: dict[str, list[str]] = {"c": ["cader"], "d": ["dan"], "w": ["wyatt", "william"]}
@@ -165,7 +165,7 @@ def test_update_attendance_use_case_2() -> None:
 
 # signature line for an edge case of update_attendance() function
 def test_update_attendance_edge_case() -> None:
-    """Returns an empty list from an input empty list."""
+    """Returns an empty dict from an input empty dict."""
     # initial setup
     test_dict: dict[str, list[str]] = dict()
     test_day: str = ""
