@@ -166,7 +166,7 @@ class Simpy:
         if type(int_check) is type(rhs):
             return self.values[rhs]
         
-        # continue if we have a mask
+        # continue if we have a mas
         for i in range(0, len(self.values), 1):
             if rhs[i]:
                 final_simpy.values.append(self.values[i])
