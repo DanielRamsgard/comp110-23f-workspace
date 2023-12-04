@@ -1,6 +1,6 @@
 """Exercise to test dictionary exercise."""
 
-from exercises.ex06.dictionary import invert, favorite_color, count, alphabetizer, update_attendance
+from exercises.ex10.dictionary import invert, favorite_color, count, alphabetizer, update_attendance
 
 __author__ = "730695813"
 
